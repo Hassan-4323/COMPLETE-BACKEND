@@ -1,0 +1,23 @@
+npm init -y => y hamaray lia nodejs application ko initiate karti ha
+
+npm i express => it installs express package
+
+const app = express() => this line create an instance of a server and we save it in app
+
+app.listen(3000) => y server ko start karnay ka lia use hoti ha aur 3000 is port number
+
+example : in laptop there are multiple applications like mail, files etc so mail use port 25 and email use port 20 , so same like this server needs 3000 port number
+
+(req, res) => req is => jo data frontend sa ata ha us ko sirf req sa access kar sakty ho
+res => kuch bi data ko backend sa frontend ko bajna ho to res use karty ha
+
+API : application programming interface : do alag alag applications ko communicate karwany ka lia jo set of rules and protocols hum use karty ha usko hum api kahty ha
+e.g frontend and backend these two may be separate application
+
+REST API: this is type of api and is most common type of web api , is ka kuch rules ha like agar ap ko 2 applications ko communicate karwana ha to wo sab say pehly standart protocol ko use kary gi like HTTP , GET, POST, PUT, DELETE are most common methods
+
+HTTP Methods: GET, POST PUT, PATCH, DELETE
+GET => server sa data mangwana ho
+POST => sever per data send karna ho
+PATCH => data already present ha aur us data ko update karna ho
+DELETE => server per data ha aur usy delete karna ha
