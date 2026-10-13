@@ -38,7 +38,8 @@ app.patch('/notes/:index', (req, res) => {
     notes [index].description = description;
 
     res.status(200).json({
-        message: "Notes updated successfully"
+        message: "Notes updated successfully",
+        message: "Notes 2 is created and updated successfully"
     })
 })
 
