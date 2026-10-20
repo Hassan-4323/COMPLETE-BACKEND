@@ -16,4 +16,20 @@ app.post("/notes", async (req, res) => {
     })
 });
 
+app.get('/notes', async (req,res) => {
+    // const notes = await noteModel.find() // find always return array means []
+
+    const notes = await noteModel.findOne({
+        title : "test_title"
+    })
+
+    // find method returns [{},{}] or []
+    // findOne method returns {} or []
+
+    res.status(200).json({
+        message : "Notes fetched successfully",
+        notes : notes // this line means send notes as it is
+    })
+})
+
 module.exports = app;
