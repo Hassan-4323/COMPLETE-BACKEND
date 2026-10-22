@@ -2,7 +2,7 @@ const express = require("express");
 const noteModel = require("./models/note.model");
 
 const app = express();
-app.use(express.json);
+app.use(express.json());
 
 app.post("/notes", async (req, res) => {
   const data = req.body;
@@ -10,7 +10,7 @@ app.post("/notes", async (req, res) => {
     title: data.title,
     description: data.description,
   });
-  res.send(201).json({
+  res.status(201).json({
     message: "Note is created",
   });
 });
