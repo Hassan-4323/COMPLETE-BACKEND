@@ -5,4 +5,5 @@ connectDB();
 
 app.listen(3000, ()=> {
     console.log("server is responding on 3000");
+    console.log("server is responding on 4000");
 })
