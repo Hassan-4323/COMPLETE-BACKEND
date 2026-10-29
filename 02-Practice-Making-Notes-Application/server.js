@@ -1,9 +1,14 @@
-require('dotenv').config();
-const app = require('./src/app');
+require("dotenv").config();
+
+const app = require("./src/app");
 const connectDB = require("./src/db/db");
 
-connectDB();
+async function startServer() {
+    await connectDB();
 
-app.listen(3000, ()=> {
-    console.log("server is responding on 3000");
-})
+    app.listen(3000, () => {
+        console.log("Server is responding on port 3000");
+    });
+}
+
+startServer().catch(console.error);
