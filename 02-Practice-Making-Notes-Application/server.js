@@ -8,6 +8,7 @@ async function startServer() {
 
     app.listen(3000, () => {
         console.log("Server is responding on port 3000");
+        console.log("Server is running on port no 3200");
     });
 }
 
