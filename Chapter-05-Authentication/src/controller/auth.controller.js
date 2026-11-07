@@ -1,8 +1,43 @@
 const userModel = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 
+// async function registerUser(req, res) {
+//   const { username, email, password } = req.body;
+
+//   const user = await userModel.create({
+//     username,
+//     email,
+//     password,
+//   });
+
+//   const token = jwt.sign(
+//     {
+//       id: user.id,
+//     },
+//     process.env.JWT_SECRET,
+//   );
+
+//   res.cookie("token", token)
+
+//   res.status(201).json({
+//     message: "User registered successfully",
+//     user
+//   });
+// }
+
+// second version of register user means this time only unique user can register
 async function registerUser(req, res) {
   const { username, email, password } = req.body;
+
+  const isUserAlreadyExist = await userModel.findOne({
+    email
+  })
+
+  if(isUserAlreadyExist){
+    return res.status(409).json({
+      message : "User already exists"
+    })
+  }
 
   const user = await userModel.create({
     username,
@@ -24,5 +59,4 @@ async function registerUser(req, res) {
     user
   });
 }
-
 module.exports = { registerUser };
