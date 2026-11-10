@@ -1,13 +1,26 @@
-const express = require ('express');
-
+const express = require("express");
+const jwt = require("jsonwebtoken");
 const router = express.Router();
 
-router.post('/create', (req, res) => {
-    console.log(req.body);
+router.post("/create", (req, res) => {
+  const token = req.cookies.token;
 
-    console.log(req.cookies);
+  if (!token) {
+    return res.status(401).json({
+      message: "Unauthorized",
+    });
+  }
 
-    res.send("Post created successfully");
-})
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log(decoded);
+  } catch (err) {
+    return res.status(401).json({
+      message: "Token is invalid",
+    });
+  }
+
+  res.send("Post created successfully");
+});
 
 module.exports = router;
