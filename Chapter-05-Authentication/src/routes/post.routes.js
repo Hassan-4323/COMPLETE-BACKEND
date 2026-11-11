@@ -14,6 +14,8 @@ router.post("/create", (req, res) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     console.log(decoded);
+    console.log("Decoded");
+
   } catch (err) {
     return res.status(401).json({
       message: "Token is invalid",
